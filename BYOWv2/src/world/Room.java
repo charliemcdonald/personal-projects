@@ -20,7 +20,7 @@ public class Room {
         for (int dx = 0; dx < height; dx++) {
             for (int dy = 0; dy < width; dy++) {
 
-                int x = root.getX() + dx;
+                int x = root.getX() - dx;
                 int y = root.getY() + dy;
 
                 // check for wall and not already floor

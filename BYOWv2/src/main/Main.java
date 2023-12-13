@@ -1,5 +1,7 @@
 package main;
 
+import world.World;
+
 import javax.swing.JFrame;
 
 public class Main {
@@ -10,8 +12,12 @@ public class Main {
         window.setResizable(false);
         window.setTitle("2D Adventure");
 
+
+
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
+
+        World world = new World(gamePanel);
 
         window.pack();
 
