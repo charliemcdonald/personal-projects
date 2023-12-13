@@ -27,8 +27,10 @@ public class WorldTests {
         GamePanel gp = new GamePanel();
         World testWorld = new World(gp);
 
-        Hallway testHall = new Hallway(new Coordinate(35, 38), new Coordinate(30, 15));
+        Hallway testHall = new Hallway(new Coordinate(20, 20), new Coordinate(30, 10));
+        Hallway testHall2 = new Hallway(new Coordinate(1,1), new Coordinate(30, 30));
         testHall.updateWorld(testWorld);
+        testHall2.updateWorld(testWorld);
 
         testWorld.saveWorldToTextFile();
     }

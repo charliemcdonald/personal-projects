@@ -47,27 +47,33 @@ public class World {
 
         // the following code attempts to generate rooms at valid root points with p = 1 / 4
 
-//        for (int i = 0; i <= width - MAX_ROOM_DIMENSION; i += MAX_ROOM_DIMENSION) {
-//            for (int j = 0; j <= height - MAX_ROOM_DIMENSION; j += MAX_ROOM_DIMENSION) { // loop through every valid root location
-//
-//                int generationChance = random.nextInt(4);
-//
-//                if (generationChance == 3) {
-//                    continue;
-//                }
-//
-//
-//                int rHeight = random.nextInt(MAX_ROOM_DIMENSION - MIN_ROOM_DIMENSION) + MIN_ROOM_DIMENSION;
-//                int rWidth = random.nextInt(MAX_ROOM_DIMENSION - MIN_ROOM_DIMENSION) + MIN_ROOM_DIMENSION;
-//
-//                Room room = new Room(rWidth, rHeight, new Coordinate(i, j));
-//                generatedRooms.add(room);
-//                room.updateWorld(this);
-//            }
-//        }
+        for (int i = 0; i <= width - MAX_ROOM_DIMENSION; i += MAX_ROOM_DIMENSION) {
+            for (int j = 0; j <= height - MAX_ROOM_DIMENSION; j += MAX_ROOM_DIMENSION) { // loop through every valid root location
+
+                int generationChance = random.nextInt(4);
+
+                if (generationChance == 3) {
+                    continue;
+                }
+
+
+                int rHeight = random.nextInt(MAX_ROOM_DIMENSION - MIN_ROOM_DIMENSION) + MIN_ROOM_DIMENSION;
+                int rWidth = random.nextInt(MAX_ROOM_DIMENSION - MIN_ROOM_DIMENSION) + MIN_ROOM_DIMENSION;
+
+                Room room = new Room(rWidth, rHeight, new Coordinate(i, j));
+                generatedRooms.add(room);
+                room.updateWorld(this);
+            }
+        }
 
         // generate hallways between all generated rooms
 
+        Room currRoom = generatedRooms.get(0);
+
+        for (Room room : generatedRooms) {
+            new Hallway(currRoom.getRoomCenter(), room.getRoomCenter()).updateWorld(this);
+            currRoom = room;
+        }
     }
 
     public void saveWorldToTextFile() {

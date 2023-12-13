@@ -32,4 +32,8 @@ public class Room {
             }
         }
     }
+
+    public Coordinate getRoomCenter() {
+        return new Coordinate(root.getUserX() + (width / 2), root.getUserY() + (height / 2));
+    }
 }
