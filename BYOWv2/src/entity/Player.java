@@ -28,8 +28,11 @@ public class Player extends Entity {
         screenX = gp.SCREEN_WIDTH / 2 - (gp.TILE_SIZE / 2); // always in the center of the screen
         screenY = gp.SCREEN_HEIGHT / 2 - (gp.TILE_SIZE / 2);
 
+
+
         setDefault();
         getPlayerImage();
+
 
         hitBox = new Rectangle(screenX + (gp.TILE_SIZE / 4), screenY + (gp.TILE_SIZE / 4), 8 * gp.SCALE, 12 * gp.SCALE);
     }
