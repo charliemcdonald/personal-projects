@@ -15,7 +15,7 @@ public class Coordinate {
         this.x = x;
         this.y = y;
 
-        this.screenX = GamePanel.MAX_SCREEN_ROW - 1 - y;
+        this.screenX = GamePanel.MAX_WORLD_ROW - 1 - y;
         this.screenY = x;
     }
 

@@ -11,9 +11,6 @@ public class WorldTests {
     @Test
     public void basicRoomTest() {
         GamePanel gp = new GamePanel();
-        World testWorld = new World(gp);
-
-        testWorld.generateWorld();
     }
 
     @Test

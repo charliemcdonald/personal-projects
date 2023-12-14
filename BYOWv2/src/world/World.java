@@ -21,13 +21,15 @@ public class World {
 
     Random random;
 
+    public Coordinate playerSpawnPoint;
+
     int[][] worldReferenceArray; // the integer representation of the world
 
     public World(GamePanel gp) {
 
         this.gp = gp;
-        height = gp.MAX_SCREEN_ROW;
-        width = gp.MAX_SCREEN_COL;
+        height = GamePanel.MAX_WORLD_ROW;
+        width = GamePanel.MAX_WORLD_COL;
 
         worldReferenceArray = new int[height][width];
 
@@ -74,6 +76,10 @@ public class World {
             new Hallway(currRoom.getRoomCenter(), room.getRoomCenter()).updateWorld(this);
             currRoom = room;
         }
+
+        // set the player spawn point to the center of a random room
+
+        playerSpawnPoint = generatedRooms.get(random.nextInt(generatedRooms.size())).getRoomCenter();
     }
 
     public void saveWorldToTextFile() {
@@ -90,5 +96,13 @@ public class World {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public int[][] getWorldReference() {
+        return worldReferenceArray;
+    }
+
+    public Coordinate getPlayerSpawnPoint() {
+        return playerSpawnPoint;
     }
 }
