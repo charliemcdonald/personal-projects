@@ -18,7 +18,7 @@ public class CollisionHandler {
         mapTileNum = gp.tileM.getMapTileNum();
     }
 
-    public boolean isEmpty(int worldX, int worldY) {
+    public boolean isEmpty(int worldX, int worldY) { // returns true/false if tile at worldX, worldY has collision properties
 
         int tileIndex = mapTileNum[worldY / gp.TILE_SIZE][worldX / gp.TILE_SIZE];
         return !tileset[tileIndex].collision;
@@ -51,6 +51,10 @@ public class CollisionHandler {
         return true;
     }
 
+    public boolean collided(Rectangle hb1, Rectangle hb2) {
+
+        return hb1.intersects(hb2);
+    }
 
     // for debugging only
     public void drawCollisionPoints(Entity e, Graphics2D g2) {

@@ -22,6 +22,7 @@ public class World {
     Random random;
 
     public Coordinate playerSpawnPoint;
+    public Coordinate batteryTest;
 
     int[][] worldReferenceArray; // the integer representation of the world
 
@@ -49,8 +50,8 @@ public class World {
 
         // the following code attempts to generate rooms at valid root points with p = 1 / 4
 
-        for (int i = 0; i <= width - MAX_ROOM_DIMENSION; i += MAX_ROOM_DIMENSION) {
-            for (int j = 0; j <= height - MAX_ROOM_DIMENSION; j += MAX_ROOM_DIMENSION) { // loop through every valid root location
+        for (int i = MAX_ROOM_DIMENSION; i <= width - (2 * MAX_ROOM_DIMENSION); i += MAX_ROOM_DIMENSION) {
+            for (int j = MAX_ROOM_DIMENSION; j <= height - MAX_ROOM_DIMENSION; j += MAX_ROOM_DIMENSION) { // loop through every valid root location
 
                 int generationChance = random.nextInt(4);
 
@@ -70,7 +71,7 @@ public class World {
 
         // generate hallways between all generated rooms
 
-        Room currRoom = generatedRooms.get(0);
+        Room currRoom = generatedRooms.get(random.nextInt(generatedRooms.size()));
 
         for (Room room : generatedRooms) {
             new Hallway(currRoom.getRoomCenter(), room.getRoomCenter()).updateWorld(this);
@@ -80,6 +81,7 @@ public class World {
         // set the player spawn point to the center of a random room
 
         playerSpawnPoint = generatedRooms.get(random.nextInt(generatedRooms.size())).getRoomCenter();
+        batteryTest = generatedRooms.get(random.nextInt(generatedRooms.size())).getRoomCenter();
     }
 
     public void saveWorldToTextFile() {

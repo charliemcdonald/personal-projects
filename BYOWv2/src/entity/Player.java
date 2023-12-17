@@ -34,7 +34,7 @@ public class Player extends Entity {
         getPlayerImage();
 
 
-        hitBox = new Rectangle(screenX + (gp.TILE_SIZE / 4), screenY + (gp.TILE_SIZE / 4), 8 * gp.SCALE, 12 * gp.SCALE);
+        hitBox = new Rectangle(screenX + (gp.TILE_SIZE / 4), screenY + (gp.TILE_SIZE / 4), 8 * gp.SCALE, 8 * gp.SCALE);
     }
 
     public void setDefault() {
@@ -44,7 +44,7 @@ public class Player extends Entity {
         worldX = spawnPoint.getY() * gp.TILE_SIZE;
         worldY = spawnPoint.getX() * gp.TILE_SIZE;
 
-        speed = gp.SCALE;
+        speed = gp.SCALE * 3;
         direction = "down";
     }
 
@@ -148,7 +148,6 @@ public class Player extends Entity {
         };
 
         g2.drawImage(image, screenX, screenY, gp.TILE_SIZE, gp.TILE_SIZE, null);
-        drawHitBox(g2); // for debugging
 
     }
 }

@@ -32,7 +32,7 @@ public class TileManager {
         try {
 
             tile[0] = new Tile();
-            tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/NOTHING.png"));
+            tile[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/TREE.png"));
 
             tile[1] = new Tile();
             tile[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/GRASS.png"));

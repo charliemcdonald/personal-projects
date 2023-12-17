@@ -48,14 +48,14 @@ public class Hallway {
     public void generateHorizontal(Coordinate p1, Coordinate p2, World world) {
 
         // p1 is left of p2
-        Room hallway = new Room(p2.getUserX() - p1.getUserX() + 3, 3, new Coordinate(p1.getUserX() - 1, p1.getUserY() - 1));
+        Room hallway = new Room(p2.getUserX() - p1.getUserX() + 3, 4, new Coordinate(p1.getUserX() - 1, p1.getUserY() - 1));
         hallway.updateWorld(world);
     }
 
     public void generateVertical(Coordinate p1, Coordinate p2, World world) {
 
         // p1 is below p2
-        Room hallway = new Room(3, p2.getUserY() - p1.getUserY() + 3, new Coordinate(p1.getUserX() - 1, p1.getUserY() - 1));
+        Room hallway = new Room(4, p2.getUserY() - p1.getUserY() + 3, new Coordinate(p1.getUserX() - 1, p1.getUserY() - 1));
         hallway.updateWorld(world);
     }
 }
