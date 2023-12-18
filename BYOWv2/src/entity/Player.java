@@ -44,7 +44,7 @@ public class Player extends Entity {
         worldX = spawnPoint.getY() * gp.TILE_SIZE;
         worldY = spawnPoint.getX() * gp.TILE_SIZE;
 
-        speed = gp.SCALE * 3;
+        speed = gp.SCALE;
         direction = "down";
     }
 
